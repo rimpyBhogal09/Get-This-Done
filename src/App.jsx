@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import BackgroundPicker from './components/BackgroundPicker'
+import Navigation from './components/Navigation'
+import BackgroundModal from './components/BackgroundModal'
 import TodoList from './components/TodoList'
 import {
   BACKGROUND_KEY,
@@ -22,6 +23,7 @@ function App() {
   const [background, setBackground] = useState(() =>
     loadJson(BACKGROUND_KEY, DEFAULT_BACKGROUND),
   )
+  const [showBackgroundModal, setShowBackgroundModal] = useState(false)
 
   useEffect(() => {
     localStorage.setItem(TASKS_KEY, JSON.stringify(tasks))
@@ -58,13 +60,9 @@ function App() {
       style={{ backgroundImage: imageUrl ? `url("${imageUrl}")` : undefined }}
     >
       <div className="overlay">
+        <Navigation onOpenBackground={() => setShowBackgroundModal(true)} />
         <main className="card">
-          <h1>Get This Done</h1>
-          <BackgroundPicker
-            background={background}
-            onSelectPreset={(src) => setBackground({ type: 'preset', value: src })}
-            onApplyUrl={(url) => setBackground({ type: 'url', value: url })}
-          />
+          <h1>Hello Rimz, Lets get this done :</h1>
           <TodoList
             tasks={tasks}
             onAdd={addTask}
@@ -72,6 +70,14 @@ function App() {
             onToggle={toggleTask}
           />
         </main>
+        {showBackgroundModal && (
+          <BackgroundModal
+            background={background}
+            onSelectPreset={(src) => setBackground({ type: 'preset', value: src })}
+            onApplyUrl={(url) => setBackground({ type: 'url', value: url })}
+            onClose={() => setShowBackgroundModal(false)}
+          />
+        )}
       </div>
     </div>
   )
