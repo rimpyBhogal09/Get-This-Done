@@ -1,0 +1,219 @@
+.app {
+  min-height: 100svh;
+  background-color: #1a1b22;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.overlay {
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 10, 16, 0.45),
+    rgba(8, 10, 16, 0.7)
+  );
+}
+
+.card {
+  width: min(520px, 100%);
+  margin-top: 24px;
+  padding: 28px 24px 24px;
+  border-radius: 20px;
+  background: rgba(20, 22, 30, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+  color: #e8eaef;
+}
+
+.card h1 {
+  margin: 0 0 20px;
+  font-size: 2rem;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(232, 234, 239, 0.72);
+}
+
+.background-picker,
+.todo {
+  margin-top: 22px;
+}
+
+.preset-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.preset {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+.preset img {
+  display: block;
+  width: 100%;
+  height: 52px;
+  object-fit: cover;
+}
+
+.preset span {
+  display: block;
+  padding: 4px 2px 6px;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.preset.selected {
+  border-color: #8b9cff;
+}
+
+.url-form,
+.todo-form {
+  margin-top: 12px;
+}
+
+.url-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  color: rgba(232, 234, 239, 0.72);
+}
+
+.url-row,
+.todo-form {
+  display: flex;
+  gap: 8px;
+}
+
+input[type='url'],
+input[type='text'] {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: inherit;
+}
+
+input::placeholder {
+  color: rgba(232, 234, 239, 0.45);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.url-row button,
+.todo-form button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #6d7dff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.url-row button:hover,
+.todo-form button:hover {
+  background: #8593ff;
+}
+
+.empty {
+  margin: 16px 0 0;
+  color: rgba(232, 234, 239, 0.65);
+  text-align: center;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.todo-list li label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+  cursor: pointer;
+}
+
+.todo-list li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todo-list li.done span {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+.remove {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: transparent;
+  color: #ffb4b4;
+}
+
+.remove:hover {
+  background: rgba(255, 80, 80, 0.15);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 520px) {
+  .preset-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
