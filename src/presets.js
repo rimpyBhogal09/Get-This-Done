@@ -10,6 +10,3 @@ export const DEFAULT_BACKGROUND = {
   type: 'preset',
   value: BACKGROUND_PRESETS[0].src,
 }
-
-export const TASKS_KEY = 'get-this-done:tasks'
-export const BACKGROUND_KEY = 'get-this-done:background'
